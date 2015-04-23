@@ -11,38 +11,24 @@ The goal of this library is to provide a super lean rendering engine for templat
 var ivd      = require("immutable-virtual-dom");
 var element  = ivd.element;
 var text     = ivd.text;
-var ref      = ivd.ref;
+var dynamic  = ivd.dynamic;
 var fragment = ivd.fragment;
 
-
-var vnode    = fragment(text("Hello"), ref(text(), function(ref, context) {
-  ref.nodeValue = context.name;
+// create the virtual DOM
+var vnode    = fragment(text("Hello"), dynamic(text(), function(textNode, context) {
+  textNode.nodeValue = context.name;
 }));
 
-var template  = vnode.freeze();
+// create a new template with the document object
+var template  = vnode.template(document); 
+
+// create a new container - clones the template node, and sets up the bindings
 var container = template.container();
+
+// render the container first before updating
+document.body.appendChild(container.render());
+
+// update the container data after initialization. Important you do this
+// after adding the container to the DOM. 
 container.update({ name: "jake" });
-document.body.appendChild(container.ref);
-
-
-function RepeatComponent(container, attributes) {
-  this children   = container.vnode.childNodes.freeze();
-  this.container  = container;
-  this.attributes = attributes;
-  this.update();
-}
-
-RepeatComponent.prototype.update = function() {
-  for (var i = 0; i < this.attributes.amount; i++) {
-    var child = this.children.container();
-    child.update({ count: i });
-    this.container.appendChild(child.getNode());
-  }
-}
-
-vnode = element(RepeatComponent, { amount: 10, key: "count" }, ref(text(), function(ref, context) {
-  ref.nodeValue = context.count;
-}));
-
-document.body.appendChild(vnode.template().container().ref);
 ```
