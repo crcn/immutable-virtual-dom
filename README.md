@@ -18,7 +18,7 @@ document.body.appendChild(container.getNode());
 
 
 function RepeatComponent(container, attributes) {
-  this children   = container.vnode.children.container();
+  this children   = container.vnode.childNodes.container();
   this.container  = container;
   this.attributes = attributes;
   this.update();
