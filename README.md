@@ -12,13 +12,14 @@ var vnode    = fragment(text("Hello"), ref(text(), function(ref, context) {
   ref.nodeValue = context.name;
 }));
 
-var container = vnode.container();
+var template  = vnode.freeze();
+var container = template.container();
 container.update({ name: "jake" });
 document.body.appendChild(container.getNode());
 
 
 function RepeatComponent(container, attributes) {
-  this children   = container.vnode.childNodes.container();
+  this children   = container.vnode.childNodes.freeze();
   this.container  = container;
   this.attributes = attributes;
   this.update();
@@ -26,7 +27,9 @@ function RepeatComponent(container, attributes) {
 
 RepeatComponent.prototype.update = function() {
   for (var i = 0; i < this.attributes.amount; i++) {
-    this.container.appendChild(this.children.getNode());
+    var child = this.children.container();
+    child.update({ count: i });
+    this.container.appendChild(child.getNode());
   }
 }
 
