@@ -1,3 +1,10 @@
+Immutable virtual dom is a library that enables you to create templates that are *static*. The added benefit of this is that there are fewer moving parts, and you end up with a template engine that's a wee-bit more native than other *dynamic* virtual dom libraries. I.e: it's faster.
+
+The only downside to this is that you don't have the added benefit of adding/removing elements around dynamically - creating complex UIs. Once you're template is compiled, you can only mutate the elements that you specified as dynamic.
+
+Good news is that 99.9999% of web-apps don't need complex UIs, and the small edge cases where you might can easily be worked with. 
+
+The goal of this library is to provide a super lean rendering engine for template engines such as `mustache`, `handlebars`, `jade`, giving them a nice boost that's comparable to React, and other similar libraries.
 
 
 ```javascript
