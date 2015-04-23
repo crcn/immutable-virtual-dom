@@ -15,7 +15,7 @@ var vnode    = fragment(text("Hello"), ref(text(), function(ref, context) {
 var template  = vnode.freeze();
 var container = template.container();
 container.update({ name: "jake" });
-document.body.appendChild(container.getNode());
+document.body.appendChild(container.ref);
 
 
 function RepeatComponent(container, attributes) {
@@ -37,5 +37,5 @@ vnode = element(RepeatComponent, { amount: 10, key: "count" }, ref(text(), funct
   ref.nodeValue = context.count;
 }));
 
-document.body.appendChild(vnode.container().getNode());
+document.body.appendChild(vnode.template().container().ref);
 ```
