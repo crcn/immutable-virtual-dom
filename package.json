@@ -35,6 +35,6 @@
     "yargs": "^3.7.2"
   },
   "dependencies": {
-    "protoclass": "0.0.6"
+    "xtend": "^4.0.0"
   }
 }
