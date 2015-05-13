@@ -13,4 +13,5 @@ describe(__filename + "#", function() {
     var v = tpl.view();
     expect(v.render().toString()).to.be("Hello World");
   });
+  
 });
