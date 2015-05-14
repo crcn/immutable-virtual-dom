@@ -31,4 +31,30 @@ describe(__filename + "#", function() {
     expect(v.render().toString()).to.be("<span>a</span>");
   });
 
+  it("can dynamically change component attributes", function() {
+    function Component(section) {
+      this.attributes = {}
+      this.node = section.document.createTextNode("");
+      section.appendChild(this.node);
+    };
+
+    Component.prototype.setAttribute = function(name, value) {
+      this.attributes[name] = value;
+    };
+
+    Component.prototype.update = function(context) {
+      this.node.replaceText(this.attributes.message);
+    };
+
+    var tpl = ivd.template(ivd.dynamic(ivd.element(Component), function(ref, context) {
+      ref.setAttribute("message", context.message);
+    }));
+
+    var v = tpl.view({ message: "Hello World" });
+    expect(v.render().toString()).to.be("Hello World");
+    v.update({ message: "Blarg" });
+    expect(v.render().toString()).to.be("Blarg");
+  });
+
+  xit("can embed a component within a component");
 });

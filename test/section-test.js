@@ -126,5 +126,7 @@ describe(__filename + "#", function() {
       section.remove();
       expect(div.toString()).to.be("<div></div>");
     });
+
+    xit("can have a section fragment in a section fragment");
   });
 });
