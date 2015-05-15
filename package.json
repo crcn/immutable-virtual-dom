@@ -1,5 +1,5 @@
 {
-  "name": "immutable-virtual-dom",
+  "name": "ivd",
   "version": "1.0.5",
   "description": "",
   "main": "lib/index.js",
