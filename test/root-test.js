@@ -32,7 +32,6 @@ describe(__filename + "#", function() {
       this.node.nodeValue = this.nodeValue;
     }
 
-
     var tpl = ivd.template(ivd.root(ivd.reference("ref1", ivd.element("component")), function(refs, context) {
       refs.ref1.nodeValue = context.a;
     }), {
