@@ -1,6 +1,6 @@
 {
   "name": "ivd",
-  "version": "1.0.9",
+  "version": "2.0.2",
   "description": "",
   "main": "lib/index.js",
   "scripts": {

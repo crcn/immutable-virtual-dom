@@ -24,6 +24,6 @@ describe(__filename + "#", function() {
 
   it("can create a node", function() {
     var vel = ivd.element("div", { a: "1", b: "2" }, ivd.text("hello"), ivd.text("world"));
-    expect(vel.create(doc).toString()).to.be("<div a=\"1\" b=\"2\">helloworld</div>");
+    expect(vel.freeze({ document: doc }).toString()).to.be("<div a=\"1\" b=\"2\">helloworld</div>");
   });
 });

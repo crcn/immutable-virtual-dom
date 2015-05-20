@@ -28,6 +28,6 @@ Repeat.prototype.setAttribute(k, v) {
 
 Repeat.prototype.update = function(ref, context) {
   for (var i = this.count; i--;) {
-    
+
   }
 }
