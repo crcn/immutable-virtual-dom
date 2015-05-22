@@ -151,7 +151,8 @@ gulp.task("jshint", function() {
       "noarg"    : true,
       "mocha"    : true,
       "evil"     : true,
-      "laxbreak" : true
+      "laxbreak" : true,
+      "es3"      : true
     })).
     pipe(jshint.reporter('default'));
 });
