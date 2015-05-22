@@ -4,8 +4,7 @@ The only downside to this is that you don't have the added benefit of adding/rem
 
 Good news is that 99.9999% of web-apps don't need complex UIs, and the small edge cases where you might can easily be worked with.
 
-The goal of this library is to provide a super lean rendering engine for template libraries such as `mustache`, `handlebars`, `jade`, giving them a nice boost that's comparable to React, and other similar things. The other goal is to provide an interface that's compatible with web components - i.e: it shouldn't be *too* inventive.
-
+Here's an example:
 
 ```javascript
 var ivd      = require("immutable-virtual-dom");
@@ -32,4 +31,12 @@ document.body.appendChild(view.render());
 view.update({ name: "jake" });
 ```
 
-### Components
+### Goals
+
+- Decoupled from any platform. Should work on the server, browser, and native devices (possibly native ivd in the future). 
+- Interoperable with other rendering methods. SVG, canvas, HTML should all be definable within the same template.
+- Ability to change rendering engine on the fly.
+- Should work with pre-existing template engines such as `mustache`, `handlebars`, and `jade`.
+- Very few moving parts. Should leverage existing native APIs for speed such as `cloneNode()`.
+- Not too inventive. Use existing specs & APIs. 
+
