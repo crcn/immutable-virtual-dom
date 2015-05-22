@@ -16,8 +16,10 @@ var fragment = ivd.fragment;
 var template = ivd.template;
 
 // create the virtual DOM
-var tpl = template(fragment(text("Hello"), dynamic(text(), function(textNode, context) {
-  textNode.nodeValue = context.name;
+var tpl = template(fragment(text("Hello"), dynamic(text(), function(ref, options) {
+  this.update = function(context) {
+    ref.nodeValue = context;
+  };
 })));
 
 var view = tpl.view();

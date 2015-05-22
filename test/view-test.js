@@ -6,8 +6,10 @@ var document = require("nofactor");
 describe(__filename + "#", function() {
 
   it("can update a dynamic text block", function() {
-    var tpl = ivd.template(ivd.element("span", void 0, ivd.dynamic(ivd.text(), function(ref, context) {
-      ref.replaceText(context.message);
+    var tpl = ivd.template(ivd.element("span", void 0, ivd.dynamic(ivd.text(), function(ref) {
+      this.update = function(context) {
+        ref.replaceText(context.message);
+      };
     })));
 
     var v = tpl.view();

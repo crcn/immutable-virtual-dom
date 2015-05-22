@@ -22,8 +22,10 @@ describe(__filename + "#", function() {
       this.view.update(context);
     }
 
-    var tpl = ivd.template(ivd.element("component", void 0, ivd.element("span", void 0, ivd.dynamic(ivd.text(), function(ref, context) {
-      ref.replaceText(context.message);
+    var tpl = ivd.template(ivd.element("component", void 0, ivd.element("span", void 0, ivd.dynamic(ivd.text(), function(ref) {
+      this.update = function(context) {
+        ref.replaceText(context.message);
+      };
     }))), { components: { component: Component }});
 
     var v = tpl.view();
@@ -46,8 +48,10 @@ describe(__filename + "#", function() {
       this.node.replaceText(this.attributes.message);
     };
 
-    var tpl = ivd.template(ivd.dynamic(ivd.element("component"), function(ref, context) {
-      ref.setAttribute("message", context.message);
+    var tpl = ivd.template(ivd.dynamic(ivd.element("component"), function(ref) {
+      this.update = function(context) {
+        ref.setAttribute("message", context.message);
+      };
     }), { components: { component: Component }});
 
     var v = tpl.view({ message: "Hello World" });
