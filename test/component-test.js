@@ -61,4 +61,34 @@ describe(__filename + "#", function() {
   });
 
   xit("can embed a component within a component");
+
+  it("can set registered attributes on a registered component", function() {
+    function Component(section) {
+      section.appendChild(this.ref = section.document.createTextNode(""));
+    }
+
+    Component.prototype.setAttribute = function(name, value) {
+      this.ref.replaceText(name+":"+value);
+    }
+
+    Component.prototype.update = function() {
+
+    }
+
+    var tpl = ivd.template(ivd.element("component", { a: true }), {
+      components: {
+        component: Component
+      },
+      attributes: {
+        a: function(ref, key, value) {
+          this.update = function(context) {
+            ref.setAttribute("message", context.message);
+          }
+        }
+      }
+    });
+
+    var v = tpl.view({message:"blarg"});
+    expect(v.render().toString()).to.be("message:blarg");
+  });
 });
