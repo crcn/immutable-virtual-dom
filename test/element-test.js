@@ -43,7 +43,7 @@ describe(__filename + "#", function() {
 
     var vel = ivd.template(ivd.element("div", { a: true }), {
       attributes: {
-        a: function(ref, key, value) {
+        a: function(ref, key, value, options) {
           this.update = function(context) {
             ref.setAttribute(key, context.message);
           }
