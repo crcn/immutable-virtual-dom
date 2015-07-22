@@ -38,5 +38,6 @@ view.update({ name: "jake" });
 - Ability to change rendering engine on the fly.
 - Should work with pre-existing template engines such as `mustache`, `handlebars`, and `jade`.
 - Very few moving parts. Should leverage existing native APIs for speed such as `cloneNode()`.
-- Not too inventive. Use existing specs & APIs. 
+- Produces very little garbage.
+
 
