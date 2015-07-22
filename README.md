@@ -2,7 +2,7 @@ Immutable virtual dom is a library that enables you to create templates that are
 
 The only downside to this is that you don't have the added benefit of adding/removing elements around dynamically - creating complex UIs. Once you're template is compiled, you can only mutate the elements that you specified as dynamic.
 
-Good news is that 99.9999% of web-apps don't need complex UIs, and the small edge cases where you might can easily be worked with.
+Good news is that *most* web-apps don't need complex UIs, and the small edge cases where you might can easily be worked with.
 
 Here's an example:
 
