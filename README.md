@@ -1,4 +1,4 @@
-Immutable virtual dom is a library that enables you to create templates that are *static*. The added benefit of this is that there are fewer moving parts, and you end up with a template engine that's a wee-bit more native than other *dynamic* virtual dom libraries. I.e: it's faster.
+Immutable virtual dom is a library that enables you to create templates that are *static*. The added benefit of this is that there are fewer moving parts, and you end up with a template engine that's a wee-bit more native than other *dynamic* virtual dom libraries. I.e: it's faster. Here's a benchmark: http://paperclip-dbmonster.herokuapp.com.
 
 The only downside to this is that you don't have the added benefit of adding/removing elements around dynamically - creating complex UIs. Once you're template is compiled, you can only mutate the elements that you specified as dynamic.
 
@@ -38,6 +38,6 @@ view.update({ name: "jake" });
 - Ability to change rendering engine on the fly.
 - Should work with pre-existing template engines such as `mustache`, `handlebars`, and `jade`.
 - Very few moving parts. Should leverage existing native APIs for speed such as `cloneNode()`.
-- Produces very little garbage.
+
 
 
