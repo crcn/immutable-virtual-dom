@@ -1,3 +1,5 @@
+**This library has been moved into paperclip.js until it matures a bit.**
+
 Immutable virtual dom is a library that enables you to create templates that are *static*. The added benefit of this is that there are fewer moving parts, and you end up with a template engine that's a wee-bit more native than other *dynamic* virtual dom libraries. I.e: it's faster. Here's a benchmark: http://paperclip-dbmonster.herokuapp.com.
 
 The only downside to this is that you don't have the added benefit of adding/removing elements around dynamically - creating complex UIs. Once you're template is compiled, you can only mutate the elements that you specified as dynamic.
